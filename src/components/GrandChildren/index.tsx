@@ -1,14 +1,13 @@
-import React, { Dispatch, SetStateAction } from 'react'
+import React, { Dispatch, SetStateAction, useContext } from "react";
+import CountContext from "../../context";
 
-interface IProps {
-    count: number;
-    setCount: Dispatch<SetStateAction<number>>;  
-}
+export default function GrandChildren() {
+    const { count, setCount } = useContext(CountContext);
 
-export default function GrandChildren(props:IProps) {
-  return (
-    <button onClick={() => props.setCount(props.count + 2)}>
-      Soma 2
-    </button>
-  );
+    return (
+        <>
+            <h1>{count}</h1>
+            <button onClick={() => setCount(count + 2)}>Soma 2</button>
+        </>
+    );
 }
